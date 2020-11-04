@@ -1,0 +1,38 @@
+package com.xst.domain.enums;
+
+/**
+ * @author GUO
+ * @Classname QuestionStatusEnum
+ * @Description 题目状态
+ * @Date 2020/11/4 9:14
+ */
+public enum QuestionStatusEnum {
+    OK(1, "正常"),
+    Publish(2, "发布");
+
+    int code;
+    String name;
+
+    QuestionStatusEnum(int code, String name) {
+        this.code = code;
+        this.name = name;
+    }
+
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+}
