@@ -1,5 +1,6 @@
 logging:
-  path: ./log/
+  file:
+    path: ./log/
 
 spring:
   redis:
