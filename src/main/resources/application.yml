@@ -12,7 +12,8 @@ server:
 #logging logback
 logging:
   config: classpath:logback-spring.xml
-    file: xst
+  file:
+    name: xst
 
 #mybatis
 mybatis:

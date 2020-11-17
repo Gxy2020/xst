@@ -1,8 +1,13 @@
 package com.xst.repository;
 
 import com.xst.domain.MessageUser;
+import com.xst.viewmodel.student.user.MessageRequestVM;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface MessageUserMapper {
+import java.util.List;
+
+@Mapper
+public interface MessageUserMapper extends BaseMapper<MessageUser> {
     int deleteByPrimaryKey(Integer id);
 
     int insert(MessageUser record);
@@ -14,4 +19,12 @@ public interface MessageUserMapper {
     int updateByPrimaryKeySelective(MessageUser record);
 
     int updateByPrimaryKey(MessageUser record);
+
+    List<MessageUser> selectByMessageIds(List<Integer> ids);
+
+    int inserts(List<MessageUser> list);
+
+    List<MessageUser> studentPage(MessageRequestVM requestVM);
+
+    Integer unReadCount(Integer userId);
 }

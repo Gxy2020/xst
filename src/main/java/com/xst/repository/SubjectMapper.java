@@ -1,8 +1,13 @@
 package com.xst.repository;
 
 import com.xst.domain.Subject;
+import com.xst.viewmodel.admin.education.SubjectPageRequestVM;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface SubjectMapper {
+import java.util.List;
+
+@Mapper
+public interface SubjectMapper  extends BaseMapper<Subject> {
     int deleteByPrimaryKey(Integer id);
 
     int insert(Subject record);
@@ -14,4 +19,10 @@ public interface SubjectMapper {
     int updateByPrimaryKeySelective(Subject record);
 
     int updateByPrimaryKey(Subject record);
+
+    List<Subject> getSubjectByLevel(Integer level);
+
+    List<Subject> allSubject();
+
+    List<Subject> page(SubjectPageRequestVM requestVM);
 }

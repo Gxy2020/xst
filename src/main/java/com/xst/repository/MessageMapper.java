@@ -1,8 +1,13 @@
 package com.xst.repository;
 
 import com.xst.domain.Message;
+import com.xst.viewmodel.admin.message.MessagePageRequestVM;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface MessageMapper {
+import java.util.List;
+
+@Mapper
+public interface MessageMapper extends BaseMapper<Message> {
     int deleteByPrimaryKey(Integer id);
 
     int insert(Message record);
@@ -14,4 +19,10 @@ public interface MessageMapper {
     int updateByPrimaryKeySelective(Message record);
 
     int updateByPrimaryKey(Message record);
+
+    List<Message> page(MessagePageRequestVM requestVM);
+
+    List<Message> selectByIds(List<Integer> ids);
+
+    int readAdd(Integer id);
 }

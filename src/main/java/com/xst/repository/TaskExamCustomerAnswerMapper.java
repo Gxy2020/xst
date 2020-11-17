@@ -1,8 +1,14 @@
 package com.xst.repository;
 
-import com.xst.domain.TaskExamCustomerAnswer;
 
-public interface TaskExamCustomerAnswerMapper {
+import com.xst.domain.TaskExamCustomerAnswer;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
+@Mapper
+public interface TaskExamCustomerAnswerMapper extends BaseMapper<TaskExamCustomerAnswer> {
     int deleteByPrimaryKey(Integer id);
 
     int insert(TaskExamCustomerAnswer record);
@@ -14,4 +20,8 @@ public interface TaskExamCustomerAnswerMapper {
     int updateByPrimaryKeySelective(TaskExamCustomerAnswer record);
 
     int updateByPrimaryKey(TaskExamCustomerAnswer record);
+
+    TaskExamCustomerAnswer getByTUid(@Param("tid") Integer tid, @Param("uid") Integer uid);
+
+    List<TaskExamCustomerAnswer> selectByTUid(@Param("taskIds") List<Integer> taskIds, @Param("uid") Integer uid);
 }

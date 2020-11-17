@@ -1,8 +1,10 @@
 package com.xst.repository;
 
 import com.xst.domain.UserToken;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface UserTokenMapper {
+@Mapper
+public interface UserTokenMapper extends BaseMapper<UserToken> {
     int deleteByPrimaryKey(Integer id);
 
     int insert(UserToken record);
@@ -14,4 +16,6 @@ public interface UserTokenMapper {
     int updateByPrimaryKeySelective(UserToken record);
 
     int updateByPrimaryKey(UserToken record);
+
+    UserToken getToken(String token);
 }
